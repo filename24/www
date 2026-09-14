@@ -2,12 +2,26 @@ import { llms, loader } from 'fumadocs-core/source';
 import { lucideIconsPlugin } from 'fumadocs-core/source/lucide-icons';
 import { docsContentRoute, docsImageRoute, docsRoute } from './shared';
 import { defineDocs } from 'fumadocs-mdx/macro';
-import { metaSchema, pageSchema } from 'fumadocs-core/source/schema';
+import { metaSchema } from 'fumadocs-core/source/schema';
+import { z } from 'zod/v3';
+
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  authors: z.array(z.string()).optional(),
+  authorSrc: z.string().optional(),
+  date: z.coerce.date().optional(),
+  updatedAt: z.coerce.date().optional(),
+  heroImagePath: z.string().optional(),
+  excerpt: z.string().optional(),
+  pinned: z.boolean().optional(),
+  tags: z.array(z.string()).optional(),
+});
 
 const docs = defineDocs({
-  dir: 'content/docs',
+  dir: 'content/blog',
   docs: {
-    schema: pageSchema,
+    schema: blogSchema,
     postprocess: {
       includeProcessedMarkdown: true,
     },
