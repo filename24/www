@@ -26,6 +26,7 @@ Next.js 16.3.4 + Fumadocs documentation site. Dark-themed, Korean developer site
 - `src/app/api/search/` — search route handler
 - `src/app/og/blog/` — OG image routes
 - `src/app/llms.mdx/blog/` — LLMS content routes
+- `src/app/manifest.ts` — web app manifest (`/manifest.webmanifest`)
 - `src/app/sitemap.ts` — dynamic sitemap via `getAllPosts()`
 - `src/app/robots.ts` — crawling directives for search engines
 - `src/lib/source.ts` — fumadocs MDX source definition (`defineDocs`, `loader`, schema)
