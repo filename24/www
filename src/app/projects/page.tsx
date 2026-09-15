@@ -6,6 +6,27 @@ import { appName } from '@/lib/shared';
 export const metadata: Metadata = {
   title: `Projects | ${appName}`,
   description: 'Selected work — side projects and experiments.',
+  openGraph: {
+    title: `Projects | ${appName}`,
+    description: 'Selected work — side projects and experiments.',
+    type: 'website',
+    siteName: appName,
+    url: 'https://filename24.github.io/www/projects',
+    images: [
+      {
+        url: '/images/icon-3.png',
+        width: 1200,
+        height: 630,
+        alt: appName,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: `@${appName}`,
+    title: `Projects | ${appName}`,
+    description: 'Selected work — side projects and experiments.',
+  },
 };
 
 export default function ProjectsPage() {

@@ -5,6 +5,37 @@ import {
   ProjectsSection,
   SiteHeader,
 } from '@/components/section';
+import type { Metadata } from 'next';
+import { appName } from '@/lib/shared';
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: appName,
+    description:
+      'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+    openGraph: {
+      title: appName,
+      description:
+        'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+      type: 'website',
+      url: 'https://filename24.github.io/www',
+      images: [
+        {
+          url: '/images/icon-3.png',
+          width: 1200,
+          height: 630,
+          alt: appName,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: appName,
+      description:
+        'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+    },
+  };
+}
 
 export default function HomePage() {
   return (

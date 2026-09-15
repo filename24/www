@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { getMDXComponents } from '@/components/mdx';
 import { source } from '@/lib/source';
-import { getPageImageUrl } from '@/lib/shared';
+import { getPageImageUrl, appName } from '@/lib/shared';
 import {
   formatDate,
   formatTag,
@@ -37,11 +37,28 @@ export async function generateMetadata(
   const page = source.getPage([params.slug]);
   if (!page) notFound();
 
+  const item = toCardItem(page);
+  const siteUrl = 'https://filename24.github.io/www';
+  const canonicalUrl = `${siteUrl}/blog/${page.url}`;
+
   return {
     title: page.data.title,
     description: page.data.description,
     openGraph: {
-      images: getPageImageUrl(page).url,
+      title: page.data.title,
+      description: page.data.description,
+      type: 'article',
+      siteName: appName,
+      url: canonicalUrl,
+      images: getPageImageUrl(page).url ? [getPageImageUrl(page).url] : undefined,
+      publishedTime: item.date ? new Date(item.date).toISOString() : undefined,
+      authors: item.authors.map((name) => getAuthor(name).name),
+      tags: item.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.title,
+      description: page.data.description,
     },
   };
 }

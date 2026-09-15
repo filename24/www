@@ -8,6 +8,29 @@ export const metadata: Metadata = {
   title: `Blog | ${appName}`,
   description:
     'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+  openGraph: {
+    title: `Blog | ${appName}`,
+    description:
+      'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+    type: 'website',
+    siteName: appName,
+    url: 'https://filename24.github.io/www/blog',
+    images: [
+      {
+        url: '/images/icon-3.png',
+        width: 1200,
+        height: 630,
+        alt: appName,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: `@${appName}`,
+    title: `Blog | ${appName}`,
+    description:
+      'Notes on distributed systems, transport-aware backends, and infrastructure as code.',
+  },
 };
 
 export default function BlogHome() {
