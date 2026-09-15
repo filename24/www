@@ -80,6 +80,11 @@ export default function Layout({ children }: LayoutProps<'/'>) {
           href="/fonts/pretendard/Pretendard-SemiBold.woff2"
         />
         <link rel="icon" href="/knea.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/images/icon-3.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content={appName} />
       </head>
       <body className="flex flex-col min-h-screen font-pretendard">
         <RootProvider>{children}</RootProvider>
